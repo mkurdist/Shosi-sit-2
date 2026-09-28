@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: shoe-store
+    runtime: docker
+    plan: free
+    healthCheckPath: /health.txt
+    envVars:
+      - {key: WP_URL, sync: false}
+      - {key: WORDPRESS_DB_HOST, sync: false}
+      - {key: WORDPRESS_DB_NAME, sync: false}
+      - {key: WORDPRESS_DB_USER, sync: false}
+      - {key: WORDPRESS_DB_PASSWORD, sync: false}
+      - {key: DB_SSL, value: "1"}
+      - {key: ADMIN_USER, sync: false}
+      - {key: ADMIN_PASSWORD, sync: false}
+      - {key: ADMIN_EMAIL, sync: false}
+      - {key: CARD_NUMBER, sync: false}
+      - {key: CARD_HOLDER, sync: false}
+      - {key: CARD_BANK, sync: false}
+      - {key: SHIPPING_COST, value: "0"}
+      - {key: DEFAULT_STOCK, value: "10"}
+      - {key: WORDPRESS_AUTH_KEY, generateValue: true}
+      - {key: WORDPRESS_SECURE_AUTH_KEY, generateValue: true}
+      - {key: WORDPRESS_LOGGED_IN_KEY, generateValue: true}
+      - {key: WORDPRESS_NONCE_KEY, generateValue: true}
+      - {key: WORDPRESS_AUTH_SALT, generateValue: true}
+      - {key: WORDPRESS_SECURE_AUTH_SALT, generateValue: true}
+      - {key: WORDPRESS_LOGGED_IN_SALT, generateValue: true}
+      - {key: WORDPRESS_NONCE_SALT, generateValue: true}
