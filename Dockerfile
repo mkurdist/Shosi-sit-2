@@ -5,7 +5,7 @@ RUN set -eux; \
     cd /usr/src/wordpress/wp-content; \
     curl -fsSL -o /tmp/wc.zip https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip; unzip -q /tmp/wc.zip -d plugins; \
     curl -fsSL -o /tmp/pw.zip https://downloads.wordpress.org/plugin/persian-woocommerce.latest-stable.zip && unzip -q /tmp/pw.zip -d plugins || echo "persian-woocommerce skipped"; \
-    curl -fsSL -o /tmp/sf.zip https://downloads.wordpress.org/theme/storefront.latest-stable.zip; unzip -q /tmp/sf.zip -d themes; \
+    curl -fsSL -o /tmp/astra.zip https://downloads.wordpress.org/theme/astra.latest-stable.zip; unzip -q /tmp/astra.zip -d themes; \
     rm -f /tmp/*.zip; a2enmod expires headers deflate
 COPY php.ini /usr/local/etc/php/conf.d/zz-shop.ini
 COPY apache.conf /etc/apache2/conf-available/zz-shop.conf
