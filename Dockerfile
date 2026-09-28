@@ -5,7 +5,10 @@ RUN set -eux; \
     curl -fsSL -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar; chmod +x /usr/local/bin/wp; \
     cd /usr/src/wordpress/wp-content; \
     curl -fsSL -o /tmp/theme.zip "https://github.com/mkurdist/Shosi-sit-2/releases/download/v1.0/woodmart-8.3.9.zip"; \
-    curl -fsSL -o /tmp/wc.zip https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip; unzip -q /tmp/wc.zip -d plugins; \
+    curl -fsSL -o /tmp/woodmart-core.zip "https://github.com/mkurdist/Shosi-sit-2/releases/download/v1.0/woodmart-core.zip"; \
+    curl -fsSL -o /tmp/wc.zip https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip; \
+    unzip -q /tmp/wc.zip -d plugins; \
+    unzip -q /tmp/woodmart-core.zip -d plugins; \
     curl -fsSL -o /tmp/pw.zip https://downloads.wordpress.org/plugin/persian-woocommerce.latest-stable.zip && unzip -q /tmp/pw.zip -d plugins || echo "persian-woocommerce skipped"; \
     unzip -q /tmp/theme.zip -d themes; \
     rm -f /tmp/*.zip; a2enmod expires headers deflate
