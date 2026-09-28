@@ -14,12 +14,17 @@ if ! wpc core is-installed 2>/dev/null; then
   wpc core install --url="$WP_URL" --title="کفش‌سرا" --admin_user="${ADMIN_USER:-admin}" --admin_password="$ADMIN_PASSWORD" --admin_email="$ADMIN_EMAIL" --skip-email
 fi
 
-# فایل‌های زبان روی دیسک موقت‌اند؛ هر بوت دوباره دانلود می‌شوند
+# ۱. دانلود و فعال‌سازی خودکار افزونه‌های رایگان
+wpc plugin install elementor media-cloud-sync contact-form-7 --activate >/dev/null 2>&1
+
+# ۲. فعال‌سازی افزونه‌هایی که در داکرفایل دانلود شده‌اند
+wpc plugin activate woocommerce persian-woocommerce woodmart-core >/dev/null 2>&1
+
+# ۳. دانلود فایل‌های ترجمه (بعد از نصب افزونه‌ها اجرا می‌شود تا همه فارسی شوند)
 wpc language core install fa_IR --activate >/dev/null 2>&1
 wpc language plugin install --all fa_IR >/dev/null 2>&1
 wpc language theme install --all fa_IR >/dev/null 2>&1
 
-wpc plugin activate woocommerce persian-woocommerce >/dev/null 2>&1
 wpc theme activate woodmart >/dev/null 2>&1
 wpc eval-file /setup/seed.php
 
