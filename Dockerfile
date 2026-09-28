@@ -14,6 +14,6 @@ COPY wp-config-extra.php health.txt /usr/src/wordpress/
 COPY shop-core.php card-to-card.php /usr/src/wordpress/wp-content/mu-plugins/
 COPY entrypoint.sh setup.sh seed.php products.json /setup/
 RUN sed -i 's/\r$//' /setup/*.sh && chmod +x /setup/*.sh
-ENV WORDPRESS_CONFIG_EXTRA="require_once __DIR__.'/wp-config-extra.php';"
+ENV WORDPRESS_CONFIG_EXTRA="require_once '/var/www/html/wp-config-extra.php';"
 ENTRYPOINT ["/setup/entrypoint.sh"]
 CMD ["apache2-foreground"]
