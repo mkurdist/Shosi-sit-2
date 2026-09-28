@@ -20,7 +20,7 @@ wpc language plugin install --all fa_IR >/dev/null 2>&1
 wpc language theme install --all fa_IR >/dev/null 2>&1
 
 wpc plugin activate woocommerce persian-woocommerce >/dev/null 2>&1
-wpc theme activate storefront >/dev/null 2>&1
+wpc theme activate astra >/dev/null 2>&1
 wpc eval-file /setup/seed.php
 
 # WP-Cron واقعی هر ۵ دقیقه
